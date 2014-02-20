@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
 end
+gem 'devise'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
