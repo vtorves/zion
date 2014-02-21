@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220185646) do
+ActiveRecord::Schema.define(version: 20140221150802) do
+
+  create_table "accounts", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "lastname"
+    t.string   "address"
+    t.string   "cellphone"
+    t.string   "phone"
+    t.string   "observation"
+    t.string   "status"
+    t.string   "work"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lists", force: true do |t|
     t.string   "info"
