@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221150802) do
+ActiveRecord::Schema.define(version: 20140221212338) do
 
   create_table "accounts", force: true do |t|
     t.integer  "owner_id"
@@ -31,6 +31,23 @@ ActiveRecord::Schema.define(version: 20140221150802) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tickets", force: true do |t|
+    t.string   "subject"
+    t.string   "demand"
+    t.string   "private"
+    t.string   "ip"
+    t.string   "status"
+    t.string   "local"
+    t.string   "reopen"
+    t.string   "closed"
+    t.string   "priority"
+    t.string   "account"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tickets", ["account"], name: "index_tickets_on_account"
 
   create_table "users", force: true do |t|
     t.string   "name"
