@@ -19,14 +19,12 @@
       <% end %>
 
       <!-- account config -->
-      <%= form_group_for f, :status do %>
-      <%= f.text_field :status, class: 'form-control' %>
-      <%= f.text_field :status, class: 'form-control' %>
+      <%= form_group_for f, :address do %>
+      
+          <%= f.text_field :address, class: 'form-control' %>
+     
+      <% end %>
 
-      <% end %>
-      <%= form_group_for f, :cellphone do %>
-      <%= f.text_field :cellphone, class: 'form-control' %>
-      <% end %>
       <%= form_group_for f, :lastname do %>
       <%= f.text_field :lastname, class: 'form-control' %>
       <% end %>
@@ -34,19 +32,22 @@
       <%= form_group_for f, :phone do %>
       <%= f.text_field :phone, class: 'form-control' %>
       <% end %>
+      <%= form_group_for f, :cellphone do %>
+      <%= f.text_field :cellphone, class: 'form-control' %>
+      <% end %>
 
-      <%= form_group_for f, :observation do %>
-      <%= f.text_field :observation, class: 'form-control' %>
+      <%= form_group_for f, :status do %>
+<%= f.select :status, ([["ATIVO", "ATIVO"], 
+["INATIVO", "INATIVO"]]), class: 'form-control' %>
+
       <% end %>
       <%= form_group_for f, :work do %>
-      <%= f.text_field :work, class: 'form-control' %>
+      <%= f.select :work, ([["ADVOGADO", "ADVOGADO"], 
+["ESTAGIARIO", "ESTAGIARIO"], ["ESTAGIARIO 2", "ESTAGIARIO 2"]]) %>
       <% end %>
 
-      <%= form_group_for f, :address do %>
-        <div class="input-group">
-          <%= f.text_field :address, class: 'form-control' %>
-          <span class="input-group-addon">.timetracker.dev</span>
-        </div>
+        <%= form_group_for f, :observation do %>
+      <%= f.text_area :observation, class: 'form-control' %>
       <% end %>
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
