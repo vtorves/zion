@@ -1,4 +1,6 @@
 Zion01::Application.routes.draw do
+  resources :groups
+
   root 'welcome#index'
 
   devise_for :users
