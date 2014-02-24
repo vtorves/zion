@@ -8,16 +8,18 @@
 
 		<!-- account config -->
 		<%= form_group_for f, :subject do %>
-
 		<%= f.text_field :subject, class: 'form-control' %>
-
 		<% end %>
 
 
 		<%= form_group_for f, :account do %>
+		<%= collection_select(:tickets, :account, Account.all, :id, :lastname) %>
 
-  		<%= f.select :account, Account.all.collect {|p| [ p.user, p.id ] }, { include_blank: true }) %>
-<% end %>
+		<% end %>
+
+	<%= form_group_for f, :account do %>
+		<%= collection_select(:tickets, :owner_id, Account.all, :id, :lastname) %>
+
 		<% end %>
 
 		<%= form_group_for f, :demand do %>

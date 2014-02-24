@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
 	def new
 		@ticket = Ticket.new
+	#	@account = Account.all
 	end
 
   def create
