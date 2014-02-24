@@ -6,9 +6,10 @@
 
 
 	    <%= form_group_for f, :account do %>
-		<%= collection_select(:tickets, :owner_id, Account.all, :id, :lastname) %>
+		<%= collection_select(:tickets, :owner_id, Account.all, :id, :lastname) %> (quem Cria)
 
 		<!-- account config -->
+
 		<%= form_group_for f, :subject do %>
 		<%= f.text_field :subject, class: 'form-control' %>
 		<% end %>
@@ -16,17 +17,14 @@
 		<%= f.text_area :demand, class: 'form-control' %>
 		<% end %>
 
-
+		#destino
 		<%= form_group_for f, :account do %>
-		<%= collection_select(:tickets, :assigned, Account.all, :id, :lastname) %>
+		<%= collection_select(:tickets, :account, Account.all, :id, :lastname) %> ou
 		<% end %>
-		<%= form_group_for f, :assigned do %>
-		<%= collection_select(:tickets, :assigned, Account.all, :id, :lastname) %>
+		<%= form_group_for f, :group do %>
+		<%= collection_select(:tickets, :group, Group.all, :id, :name) %>
 		<% end %>
-		<%= form_group_for f, :work do %>
-      <%= f.select :work, ([["ADVOGADO", "ADVOGADO"], 
-["ESTAGIARIO", "ESTAGIARIO"], ["ESTAGIARIO 2", "ESTAGIARIO 2"]]) %>
-      <% end %>
+		
 
 
 		<% end %>
@@ -37,7 +35,7 @@
 		<%= f.text_field :private, class: 'form-control' %>
 		<% end %>
 		<%= form_group_for f, :ip do %>
-		<%= f.text_field :ip, class: 'form-control' %>
+		<%= f.text_field :ip,  class: 'form-control' %>
 		<% end %>
 
 		<%= form_group_for f, :local do %>
@@ -48,7 +46,7 @@
 		<%= form_group_for f, :status do %>
 		<%= f.select :status, ([["ATIVO", "ATIVO"], 
 		["INATIVO", "INATIVO"]]), class: 'form-control' %>
-		<% end %>
+		<% end %> (ATIVO IMPLICITO)
 
 		<%= form_group_for f, :priority do %>
 		<%= f.select :priority, ([["Urgente", "urgente"], 
