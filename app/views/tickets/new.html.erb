@@ -1,12 +1,33 @@
 <div class="col-md-6 col-md-offset-3 panel panel-default">
+<% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>  
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Edit account', edit_user_registration_path) %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Sign up', new_user_registration_path)  %>
+    </li>
+  <% end %>
 	<div class="panel-body">
 		<h2>Create an Tickets</h2>
 
 		<%= form_for @ticket do |f| %>
 
+		<%= form_group_for f, :number_only do %>
+		<%= f.text_field :number_only, class: 'form-control' %>
+		<% end %>
 
-	    <%= form_group_for f, :account do %>
-		<%= collection_select(:tickets, :owner_id, Account.all, :id, :lastname) %> (quem Cria)
+	    <%= form_group_for f, :account_id do %>
+		<%= collection_select(:ticket, :account_id, Account.all, :id, :lastname,:prompt => true) %> (quem Cria)
 
 		<!-- account config -->
 
@@ -18,11 +39,11 @@
 		<% end %>
 
 		#destino
-		<%= form_group_for f, :account do %>
-		<%= collection_select(:tickets, :account, Account.all, :id, :lastname) %> ou
+		<%= form_group_for f, :assigned do %>
+		<%= collection_select(:ticket, :assigned, Account.all, :id, :lastname,:prompt => true) %> ou
 		<% end %>
-		<%= form_group_for f, :group do %>
-		<%= collection_select(:tickets, :group, Group.all, :id, :name) %>
+		<%= form_group_for f, :group_id do %>
+		<%= collection_select(:ticket, :group_id, Group.all, :id, :name,:prompt => true) %>
 		<% end %>
 		
 

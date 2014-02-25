@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224204539) do
+ActiveRecord::Schema.define(version: 20140225145610) do
 
   create_table "accounts", force: true do |t|
     t.integer  "owner_id"
@@ -52,10 +52,14 @@ ActiveRecord::Schema.define(version: 20140224204539) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "assigned"
-    t.integer  "group"
+    t.integer  "group_id"
+    t.integer  "account_id"
+    t.string   "number_only"
   end
 
   add_index "tickets", ["account"], name: "index_tickets_on_account"
+  add_index "tickets", ["account_id"], name: "index_tickets_on_account_id"
+  add_index "tickets", ["group_id"], name: "index_tickets_on_group_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

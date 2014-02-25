@@ -20,7 +20,7 @@ class TicketsController < ApplicationController
 
 private
   def ticket_params
-    params.require(:ticket).permit( :subject, :demand, :private, :ip, :status, :local, :reopen, :closed, :priority, :account, :group, :assigned)
+    params.require(:ticket).permit( :number_only,  :subject, :demand, :private, :ip, :status, :local, :reopen, :closed, :priority, :group_id, :assigned, :account_id)
   end
 
 end
