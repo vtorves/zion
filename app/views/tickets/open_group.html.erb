@@ -1,0 +1,33 @@
+
+#DEMANDAS GERAIS / ABERTAS EM GRUPO
+<div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>STATUS</th>
+            <th>TICKET</th>
+            <th>GRUPO</th>
+            <th>CONTA PAI</th>
+            <th>ASSUNTO</th>
+            <th>LOCAL</th>
+            <th>DETALHES</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @tickets.each do |ticket| %>
+          <tr>
+            <td><%= ticket.status %></td>
+            <td><%= ticket.number_only %></td>
+            <td><%= ticket.group.name %></td>
+            <td><%= ticket.account.lastname %></td>
+            <td><%= ticket.subject %></td>
+            <td><%= ticket.local %></td>
+            <td><%= ticket.id %></td>
+          </tr>
+    <% end %>
+
+         </tbody>
+      </table>
+    </div>
+
+<%= @tickets.inspect %>

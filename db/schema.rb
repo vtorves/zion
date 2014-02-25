@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225145610) do
+ActiveRecord::Schema.define(version: 20140225202701) do
 
   create_table "accounts", force: true do |t|
     t.integer  "owner_id"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20140225145610) do
     t.string   "work"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
+
+  add_index "accounts", ["group_id"], name: "index_accounts_on_group_id"
 
   create_table "groups", force: true do |t|
     t.string   "name"

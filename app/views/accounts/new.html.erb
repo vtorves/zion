@@ -39,11 +39,12 @@
       <%= form_group_for f, :status do %>
 <%= f.select :status, ([["ATIVO", "ATIVO"], 
 ["INATIVO", "INATIVO"]]), class: 'form-control' %>
-
       <% end %>
-      <%= form_group_for f, :work do %>
-      <%= f.select :work, ([["ADVOGADO", "ADVOGADO"], 
-["ESTAGIARIO", "ESTAGIARIO"], ["ESTAGIARIO 2", "ESTAGIARIO 2"]]) %>
+      
+
+
+<%= form_group_for f, :group_id do %>
+    <%= collection_select(:account, :group_id, Group.all, :id, :name,:prompt => true) %>
       <% end %>
 
         <%= form_group_for f, :observation do %>

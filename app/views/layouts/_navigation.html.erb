@@ -1,23 +1,5 @@
 <%# navigation styled for Bootstrap 3.0 %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-<% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Sign up', new_user_registration_path)  %>
-    </li>
-  <% end %>
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,3 +17,5 @@
     </div>
   </div>
 </nav>
+s
+sss

@@ -2,8 +2,10 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tickets <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">New</a></li>
-            <li><a href="#">List</a></li>
+            <li>    <%= link_to('New', new_ticket_path)  %>  
+</li>
+            <li>    <%= link_to('List', tickets_path)  %>  
+</li>
             <li><a href="#"></a></li>
             <li class="divider"></li>
             <li><a href="#">Open</a></li>
@@ -12,28 +14,11 @@
           </ul>
         </li>
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" dat a-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">New</a></li>
             <li><a href="#">List</a></li>
             <li><a href="#"></a></li>
         
         </li>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Sign up', new_user_registration_path)  %>
-    </li>
-  <% end %>
+  

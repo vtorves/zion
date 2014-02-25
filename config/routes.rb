@@ -7,7 +7,19 @@ Zion01::Application.routes.draw do
   resources :lists
 
   resources :accounts
-  resources :tickets
+  resources :tickets do
+   # get '/close' => 'tickets#close'
+#
+  end
+
+    #get '/close' => 'tickets#close'
+#
+   get 'closegroup', :to => "tickets#close_group"
+   get 'opengroup', :to => "tickets#open_group"
+   get 'closeprivate', :to => "tickets#close_private"
+   get 'openprivate', :to => "tickets#open_private"
+  #get '/close' => 'tickets#close'
+  #match '/terms' => 'pages#terms'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
