@@ -9,12 +9,13 @@ Zion01::Application.routes.draw do
   resources :accounts
   resources :tickets do
    # get '/close' => 'tickets#close'
+   get '/closegroup', :controller => 'tickets', :action => 'close_group'
 #
   end
 
     #get '/close' => 'tickets#close'
 #
-   get 'closegroup', :to => "tickets#close_group"
+   get '/closegroup', :controller => 'tickets', :action => 'close_group'
    get 'opengroup', :to => "tickets#open_group"
    get 'closeprivate', :to => "tickets#close_private"
    get 'openprivate', :to => "tickets#open_private"

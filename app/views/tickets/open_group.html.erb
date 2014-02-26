@@ -19,7 +19,7 @@
             <td><%= ticket.status %></td>
             <td><%= ticket.number_only %></td>
             <td><%= ticket.group.name %></td>
-            <td><%= ticket.account.lastname %></td>
+            <td><%= create_for(ticket.account_id) %>  </td>
             <td><%= ticket.subject %></td>
             <td><%= ticket.local %></td>
             <td><%= ticket.id %></td>

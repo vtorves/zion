@@ -20,31 +20,38 @@ def index
 end
 
 ### FILTROS #############
-def open_group ( )
-	@account = Account.where(owner_id: current_user)
+def open_group
+@account = Account.where(owner_id: current_user).first
+@tickets = Ticket.where(assigned: nil, group_id: @account.group_id, closed: nil)
+
 	
-	@tickets = Ticket.where( closed: nil, account: nil)
-	render "tickets/open_group"
+#@tickets = Ticket.where( closed: nil, account: nil)
+render "tickets/open_group"
 end
 
 
-def open_private  ##atual
+def open_private  ##OK
 
 	@account = Account.where(owner_id: current_user).first
-	
+
     @tickets = Ticket.where(assigned: @account.id, group_id: @account.group_id)
 	render "tickets/open_private"
 end
 
 def close_private
-	@tickets =  Ticket.where(assigned: current_user, reopen: nil)
+	@tickets =  Ticket.where( closed: TRUE, assigned: current_user, reopen: nil)
 	render "tickets/close_private"
 end
 
 def close_group
-	@tickets =  Ticket.where(assigned: current_user, reopen: nil)
+	@tickets =  Ticket.where(closed: TRUE, assigned: current_user, reopen: nil)
 	render "tickets/close_group"
 end
+
+
+
+def show
+	end
 ##########################
 private
 def ticket_params
