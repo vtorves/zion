@@ -10,7 +10,7 @@
 		<% end %>
 
 	    <%= form_group_for f, :account_id do %>
-		<%= collection_select(:ticket, :account_id, Account.all, :owner_id, :lastname,:prompt => true) %> (quem Cria)
+		<%= collection_select(:ticket, :account_id, Account.all, :id, :lastname,:prompt => true) %> (quem Cria)
 
 		<!-- account config -->
 
@@ -23,7 +23,7 @@
 
 		#destino
 		<%= form_group_for f, :assigned do %>
-		<%= collection_select(:ticket, :assigned, Account.all, :owner_id, :lastname,:prompt => true) %> ou
+		<%= collection_select(:ticket, :assigned, Account.all, :id, :lastname,:prompt => true) %> ou
 		<% end %>
 		<%= form_group_for f, :group_id do %>
 		<%= collection_select(:ticket, :group_id, Group.all, :id, :name,:prompt => true) %>

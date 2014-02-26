@@ -29,9 +29,10 @@ end
 
 
 def open_private  ##atual
-	   @account = Account.where(owner_id: current_user)
-		
-		@tickets = Ticket.where(assigned: current_user, group_id: @account.id)
+
+	@account = Account.where(owner_id: current_user).first
+	
+    @tickets = Ticket.where(assigned: @account.id, group_id: @account.group_id)
 	render "tickets/open_private"
 end
 

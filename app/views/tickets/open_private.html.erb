@@ -14,13 +14,17 @@
           </tr>
         </thead>
         <tbody>
+        <%= @account.inspect %>
+        <pre>
+        <%= @tickets.inspect %>
+        </pre>  
         <% @tickets.each do |ticket| %>
           <tr>
             <td><%= ticket.status %></td>
             <td><%= ticket.number_only %></td>
             <td><%= ticket.group.name %></td>
-            <td><%= ticket.account.lastname %></td>
-            <td><%= ticket.subject %></td>
+            <td><%= create_for(ticket.account_id) %>  </td>
+            <td><%= ticket.subject %> / <%= ticket.assigned %></td>
             <td><%= ticket.local %></td>
             <td><%= ticket.id %></td>
           </tr>
