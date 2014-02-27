@@ -1,0 +1,66 @@
+
+<div class="col-md-6 col-md-offset-3 panel panel-default">
+		  
+	<div class="panel-body">
+
+		<p id="notice"><%= notice %></p>
+		<% @tickets.each do |ticket| %>
+		<div>
+			<h2><b>NUMBER TICKET:</b> <%= ticket.number_only %></h2>
+
+			<p><b> GROUP:</b> <%= ticket.group.name %></p>
+			<p><b>SUBJECT:</b> <%= ticket.subject %></p>
+			<p><b>LOCAL:</b> <%= ticket.local %></p>
+			<p><b> OWNER:</b> <%= create_for(ticket.account_id) %>  </td>
+				<p><%= ticket.subject %> / <%= ticket.assigned %></p>
+				<p><b>DEMAND:</b><br> <%= ticket.demand %></p>
+
+
+				<%= form_for Ticket.new do |f| %>
+
+				<%= form_group_for f, :number_only do %>
+				<%= f.text_field :number_only,disabled: true, value: ticket.number_only,  class: 'form-control' %>
+				<% end %>	
+
+				<%= form_group_for f, :subject do %>
+				<%= f.text_field :subject,disabled: true, value: ticket.subject,  class: 'form-control' %>
+				<% end %>
+				<%= form_group_for f, :demand do %>
+				<%= f.text_area :demand, class: 'form-control' %>
+				<% end %>		
+
+				<%= form_group_for f, :closed do %></br>
+				CLOSE:
+				<%= radio_button(:ticket, :closed, nil) %>
+				OPEN:
+				<%= radio_button(:ticket, :closed, TRUE) %>
+				<% end %>
+
+				<%= form_group_for f, :assigned do %></br>
+				<%= current_user.name %>:
+				<%= radio_button(:ticket, :assigned, current_user.id) %>
+				No CHANGE:
+				<%= radio_button(:ticket, :assigned, nil) %>
+				<% end %>
+
+				
+				<%= form_group_for f, :x do %>
+
+				<%= hidden_field(:ticket, :status, value: 'ATIVO') %> 
+				<%= hidden_field(:ticket, :account_id, value: ticket.account_id) %> 
+				<%= hidden_field(:ticket, :assigned, value: ticket.assigned) %> 
+				<%= hidden_field(:ticket, :group_id, value: ticket.group.id) %> 
+				<%= hidden_field(:ticket, :ip, value: request.remote_ip) %> 
+				<%= hidden_field(:ticket, :local, value: ticket.local) %> 
+				<%= hidden_field(:ticket, :priority, value: ticket.priority) %> 
+				<% end %>
+
+				<%= f.submit class: 'btn btn-primary' %>
+
+				<% end %>
+				<% end %>
+
+
+				<%= link_to 'Back', tickets_path %>
+			</div>
+	

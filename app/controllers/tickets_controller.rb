@@ -39,16 +39,19 @@ def open_private  ##OK
 end
 
 def close_private
-	@tickets =  Ticket.where( closed: TRUE, assigned: current_user, reopen: nil)
+	@tickets =  Ticket.where( closed: on, assigned: current_user, reopen: nil)
 	render "tickets/close_private"
 end
 
 def close_group
-	@tickets =  Ticket.where(closed: TRUE, assigned: current_user, reopen: nil)
+	@tickets =  Ticket.where(closed: on, assigned: current_user, reopen: nil)
 	render "tickets/close_group"
 end
 
-
+def reply	
+	id = params[:ticket_id]
+	@tickets = Ticket.where(id: id)
+	end
 
 def show
 	end

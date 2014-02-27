@@ -26,8 +26,8 @@
             <td><%= create_for(ticket.account_id) %>  </td>
             <td><%= ticket.subject %> / <%= ticket.assigned %></td>
             <td><%= ticket.local %></td>
-            <td><%= ticket.id %></td>
-          </tr>
+            <td>        <%= link_to ticket.local, ticket_reply_path(ticket.id) %>
+</td>          </tr>
     <% end %>
 
          </tbody>

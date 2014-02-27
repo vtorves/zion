@@ -46,6 +46,7 @@
 		<%= f.select :local, ([["Escritório", "Escritório"], 
 		["FORUM", "FORUM"]]), class: 'form-control' %>
 		<% end %>
+				<%= hidden_field(:ticket, :ip, value: request.remote_ip) %> 
 
 		<%= form_group_for f, :status do %>
 		<%= f.select :status, ([["ATIVO", "ATIVO"], 
@@ -60,5 +61,7 @@
 
 		<%= f.submit class: 'btn btn-primary' %>
 		<% end %>
+
+		
 	</div>
 </div>
